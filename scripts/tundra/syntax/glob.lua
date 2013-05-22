@@ -54,7 +54,7 @@ function Glob(args)
   local ext_lookup = util.make_lookup_table(extensions)
   return glob(args.Dir, recursive, function (fn)
     local ext = path.get_extension(fn)
-    return ext_lookup[ext]
+    return ext_lookup[ext] or ext_lookup[".*"]
   end)
 end
 
